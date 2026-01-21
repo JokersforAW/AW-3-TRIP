@@ -111,9 +111,56 @@
       transform: translateY(0);
     }
   }
+  .journal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.journal-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.journal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+}
+
+.journal-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.journal-caption {
+  padding: 18px;
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.6;
+  display: none;
+}
+
+.journal-card.active .journal-caption {
+  display: block;
+}
+
 </style>
 
 </head>
+  <script>
+  document.querySelectorAll(".journal-card").forEach(card => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("active");
+    });
+  });
+</script>
+
 <body>
 
   <!-- Sidebar -->
@@ -133,36 +180,55 @@
   </div>
 
 
-    <section id="melbourne">
-      <h3>Melbourne</h3>
-      <p>
-        Our Melbourne journey was about discovering rhythm — city walks, quiet cafés,
-        and learning how to enjoy time slowly together.
-      </p>
+<section id="melbourne">
+  <h3>Melbourne</h3>
+
+  <div class="journal-grid">
+
+    <div class="journal-card">
+      <img src="melbourne1.jpg">
+      <div class="journal-caption">
+        Morning walks, quiet cafés, and learning how to enjoy silence together.
+      </div>
+    </div>
+
+    <div class="journal-card">
+      <img src="melbourne2.jpg">
+      <div class="journal-caption">
+        City lights, late dinners, and conversations that lasted longer than planned.
+      </div>
+    </div>
+
+  </div>
+
+  <p>
+    Our Melbourne journey was about discovering rhythm — city walks, quiet cafés,
+    and learning how to enjoy time slowly together.
+  </p>
+</section>
+
+<div class="journal-card">
+  <img src="vietnam1.jpg">
+  <div class="journal-caption">
+    Chaos, street food, laughter, and learning to let go of control.
+  </div>
+</div>
     </section>
 
-    <section id="vietnam">
-      <h3>Vietnam</h3>
-      <p>
-        Vietnam taught us contrast: chaos and calm, street food and silence,
-        and how shared adventure deepens connection.
-      </p>
+<div class="journal-card">
+  <img src="indonesia1.jpg">
+  <div class="journal-caption">
+    Chaos, street food, laughter, and learning to let go of control.
+  </div>
+</div>
     </section>
 
-    <section id="indonesia">
-      <h3>Indonesia</h3>
-      <p>
-        Indonesia was spiritual and grounding — sunsets, temples,
-        and moments where words weren’t needed.
-      </p>
-    </section>
-
-    <section id="kl">
-      <h3>Kuala Lumpur</h3>
-      <p>
-        KL felt familiar yet exciting — a place of reflection,
-        comfort, and future dreams.
-      </p>
+<div class="journal-card">
+  <img src="indonesia1.jpg">
+  <div class="journal-caption">
+    Chaos, street food, laughter, and learning to let go of control.
+  </div>
+</div>
     </section>
   </div>
 
